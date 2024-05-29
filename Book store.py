@@ -110,5 +110,25 @@ class Store:
         highest_rating=max(book.rating for book in self.books) 
         return [book for book in self.books if book.rating==highest_rating] 
     
+if __name__=='__main__':
+    book1 = Book("Harry Potter ja filosoofiline kivi", "Robert Helbrey", 14.59, 4.8)
+    book2 = Book("Munk. Anakonda. Veneetsia mõrvar", "Matthew Gregory Lewise", 16.99, 4.7)
+    book3 = Book("Koraan", "Muhammad Hussein Tabatabai", 17.59, 4.5)
+    book4 = Book("Sinuga olen kodus.", "Olga Primatšenko", 7.19, 3.8)
+    book5 = Book("Imelikud mängud", "Mike Omer", 10.29, 5.0)
+
+    store = Store("Raamatupood", 4.9)
+
+    store.add_book(book1)  
+    store.add_book(book2)  
+    store.add_book(book3)
+    store.add_book(book4)
+    store.add_book(book5)
+
+    print(store.get_all_books()) # -> [Book(title='Imelikud mängud', author='Mike Omer', price=10.29, rating=5.0)]
+    print(store.get_books_by_price()) # -> [Book(title='Imelikud mängud', author='Mike Omer', price=10.29, rating=5.0)]
+    print(store.get_most_popular_book()) # -> [Book(title='Imelikud mängud', author='Mike Omer', price=10.29, rating=5.0)]
+    store.remove_book(book2) 
+    print(store.get_all_books()) # -> [Book(title='Imelikud mängud', author='Mike Omer', price=10.29, rating=5.0)]
 
 
